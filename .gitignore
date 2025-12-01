@@ -22,9 +22,6 @@ instance/
 Thumbs.db
 
 # Images (optional: ignore large raw assets)
-*.png
-*.jpg
-*.jpeg
 
 # Node / frontend (if ever used)
 node_modules/
