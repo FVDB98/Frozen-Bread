@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual environment
+venv/
+
+# SQLite database
+app/database.db
+
+# Flask session keys
+instance/
+*.pem
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Images (optional: ignore large raw assets)
+*.png
+*.jpg
+*.jpeg
+
+# Node / frontend (if ever used)
+node_modules/
+
+# Environment variables
+.env

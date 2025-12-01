@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}Frozen Bread{% endblock %}</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="container nav-content">
+
+            <a href="/" class="logo">Frozen Bread</a>
+
+            <!-- Hamburger for mobile -->
+            <button class="hamburger" aria-label="Open menu">
+                &#9776;
+            </button>
+
+            <!-- Desktop navigation -->
+            <ul class="nav-links desktop-nav">
+                <li><a href="/about">About</a></li>
+                <li><a href="/menu">Menu</a></li>
+                <li><a href="/pricing">Pricing</a></li>
+                <li><a href="/faq">FAQ</a></li>
+                <li><a href="/contact">Contact</a></li>
+
+                {% if current_user.is_authenticated %}
+                    <li><a href="/account">Account</a></li>
+                    <li><a href="#" id="logoutLink">Log Out</a></li>
+                {% else %}
+                    <li><a href="/login">Log In</a></li>
+                {% endif %}
+            </ul>
+
+        </div>
+    </nav>
+
+    <!-- MOBILE SLIDE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+
+        <button class="close-menu" aria-label="Close menu">&times;</button>
+
+        <ul class="mobile-menu-links">
+            <li><a href="/about">About</a></li>
+            <li><a href="/menu">Menu</a></li>
+            <li><a href="/pricing">Pricing</a></li>
+            <li><a href="/faq">FAQ</a></li>
+            <li><a href="/contact">Contact</a></li>
+
+            {% if current_user.is_authenticated %}
+                <li><a href="/account">Account</a></li>
+                <li><a href="#" id="logoutLink">Log Out</a></li>
+            {% else %}
+                <li><a href="/login">Log In</a></li>
+            {% endif %}
+        </ul>
+    </div>
+
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    <div class="flash-container">
+      {% for category, message in messages %}
+        <div class="flash-message {{ category }}">{{ message }}</div>
+      {% endfor %}
+    </div>
+    {% endif %}
+    {% endwith %}
+
+
+
+    <!-- MAIN CONTENT -->
+    <main class="container">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; {{ current_year }} Frozen Bread — All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JS -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+    <div id="logoutModal" class="logout-modal hidden">
+        <div class="logout-modal-content">
+            <h3>Are you sure you want to log out?</h3>
+            <div class="logout-actions">
+                <button id="confirmLogout">Yes, Log Out</button>
+                <button id="cancelLogout">Cancel</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const logoutLink = document.getElementById("logoutLink");
+            const logoutModal = document.getElementById("logoutModal");
+            const confirmLogout = document.getElementById("confirmLogout");
+            const cancelLogout = document.getElementById("cancelLogout");
+
+            if (logoutLink) {
+                logoutLink.addEventListener("click", (e) => {
+                    e.preventDefault();            // Prevent instant logout
+                    logoutModal.classList.remove("hidden"); 
+                });
+            }
+
+            confirmLogout.addEventListener("click", () => {
+                window.location.href = "/logout";
+            });
+
+            cancelLogout.addEventListener("click", () => {
+                logoutModal.classList.add("hidden");
+            });
+        });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block title %}About Us — Frozen Bread{% endblock %}
+
+{% block content %}
+
+<section class="about-section">
+    <div class="container">
+
+        <h1>Our Story</h1>
+        <p>
+            Frozen Bread started as a simple love for homemade sourdough and a desire 
+            to reduce food waste. We wanted bread that tastes incredible, lasts longer, 
+            and fits into busy modern life — without compromising quality.
+        </p>
+
+        <p>
+            So we created a small-batch frozen bread service that delivers 
+            fresh-baked loaves straight to your freezer. 
+            No preservatives. No mass production. Just real, honest bread.
+        </p>
+
+        <hr class="divider">
+
+        <div class="about-grid">
+
+            <div class="about-text">
+                <h2>Meet the Team</h2>
+                <p>
+                    Together, we experiment, taste-test, bake at home, 
+                    and deliver the loaves we personally eat every week.
+                </p>
+            </div>
+
+            <div class="about-image">
+                <img src="{{ url_for('static', filename='images/Alice&Fe.jpeg') }}" 
+                    alt="Our bread team" class="about-photo">
+            </div>
+
+        </div>
+
+        <h2 class="mt-3">How We Make Our Bread</h2>
+
+        <div class="process-grid">
+            <div class="process-step">
+                <h3>1. Mix & Ferment</h3>
+                <p>Slow-fermented dough using natural methods for maximum flavour.</p>
+            </div>
+            <div class="process-step">
+                <h3>2. Bake Fresh</h3>
+                <p>Every loaf is baked in small batches, by hand, at home.</p>
+            </div>
+            <div class="process-step">
+                <h3>3. Freeze Immediately</h3>
+                <p>Flash-frozen to lock in freshness and preserve quality.</p>
+            </div>
+            <div class="process-step">
+                <h3>4. Deliver Monthly</h3>
+                <p>Reliable delivery right to your doorstep. Zero waste.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

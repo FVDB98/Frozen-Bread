@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}Menu — Frozen Bread{% endblock %}
+
+{% block content %}
+
+<section class="menu-section">
+    <div class="container">
+
+        <h1 class="menu-title">Our Breads</h1>
+        <p class="menu-subtitle">
+            We're currently developing our range of homemade frozen breads.  
+            Below are some example items — more coming soon!
+        </p>
+
+        <div class="menu-grid">
+
+            <!-- CARD 1 (placeholder example) -->
+            <div class="menu-card">
+                <img src="{{ url_for('static', filename='images/sourdough-sample.jpg') }}" alt="Sourdough Example">
+                <h3>Sourdough Loaf</h3>
+                <p class="menu-desc">A classic tangy sourdough with a crunchy crust and soft interior.</p>
+                <span class="menu-tag">Coming Soon</span>
+            </div>
+
+            <!-- CARD 2 -->
+            <div class="menu-card">
+                <img src="{{ url_for('static', filename='images/focaccia-sample.jpg') }}" alt="Focaccia Example">
+                <h3>Rosemary Focaccia</h3>
+                <p class="menu-desc">Light, fluffy, and infused with rosemary and olive oil.</p>
+                <span class="menu-tag">Coming Soon</span>
+            </div>
+
+            <!-- CARD 3 -->
+            <div class="menu-card">
+                <img src="{{ url_for('static', filename='images/baguette-sample.avif') }}" alt="Baguette Example">
+                <h3>Classic Baguette</h3>
+                <p class="menu-desc">Crisp on the outside, airy on the inside. Perfect for any meal.</p>
+                <span class="menu-tag">Coming Soon</span>
+            </div>
+
+        </div>
+
+        <p class="menu-footer">We’ll be adding more breads soon — watch this space!</p>
+
+    </div>
+</section>
+
+{% endblock %}

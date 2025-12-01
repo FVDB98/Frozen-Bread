@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Pricing — Frozen Bread{% endblock %}
+
+{% block content %}
+
+<section class="pricing-section">
+    <div class="container">
+
+        <h1 class="pricing-title">Our Subscription</h1>
+        <p class="pricing-subtitle">
+            Simple, honest pricing. Fresh, homemade bread delivered monthly.
+        </p>
+
+        <div class="pricing-card">
+            <h2 class="plan-name">Monthly Bread Box</h2>
+
+            <p class="price">
+                <span class="currency">£</span>5.99
+                <span class="per-month">/ month</span>
+            </p>
+
+            <ul class="plan-features">
+                <li>✓ 2 homemade loafs every month</li>
+                <li>✓ Frozen fresh for perfect quality</li>
+                <li>✓ Free delivery</li>
+                <li>✓ Exclusive monthly recipes</li>
+                <li>✓ Cancel anytime</li>
+            </ul>
+
+            <a href="/subscribe" class="btn pricing-btn">Subscribe Now</a>
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

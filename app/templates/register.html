@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Create Account — Frozen Bread{% endblock %}
+
+{% block content %}
+
+<section class="auth-section">
+    <div class="auth-container">
+
+        <h1 class="auth-title">Create Account</h1>
+        <p class="auth-subtitle">Join us and get access to your frozen bread subscription.</p>
+
+        <form action="/register" method="POST" class="auth-form">
+
+            <input type="text" name="name" placeholder="Full name" required>
+            <input type="email" name="email" placeholder="Email address" required>
+            <input type="password" name="password" placeholder="Create password" required>
+
+            <input type="text" name="address_line1" placeholder="Address line 1" required>
+            <input type="text" name="address_line2" placeholder="Address line 2">
+            <input type="text" name="city" placeholder="City">
+            <input type="text" name="postcode" placeholder="Postcode" required>
+            <input type="text" name="country" placeholder="Country" required>
+
+            <button type="submit" class="btn">Create Account</button>
+        </form>
+
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="account-container">
+
+    <h2 class="account-title">Welcome back, {{ user.name }} 👋</h2>
+
+    <div class="account-card">
+
+        <h3>Your Details</h3>
+        
+        <p><strong>Email:</strong> {{ user.email }}</p>
+        <p><strong>Address:</strong><br>
+            {{ user.address_line1 }}<br>
+            {% if user.address_line2 %} {{ user.address_line2 }}<br> {% endif %}
+            {{ user.city }}<br>
+            {{ user.postcode }}<br>
+            {{ user.country }}
+        </p>
+
+        <p><strong>Account Created:</strong> {{ user.created_at }}</p>
+
+        <div class="account-actions">
+            <a class="button grey-btn" href="{{ url_for('account.update_address') }}" class="account-link">Update Address</a>
+            <a class="button grey-btn" href="/account/subscription">Manage Subscription</a>
+            <a class="button logout-btn" href="/logout">Log Out</a>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

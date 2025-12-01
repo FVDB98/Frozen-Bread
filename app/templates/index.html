@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block title %}Frozen Bread — Fresh Bread, Without the Waste{% endblock %}
+
+{% block content %}
+
+<!-- HERO SECTION -->
+<section class="hero">
+    <h1>Freshly Baked Bread — Frozen for Convenience</h1>
+    <p>Small-batch, homemade sourdough and artisan loaves delivered monthly. 
+       Ready when you are. Zero waste, maximum flavour.</p>
+
+    <a href="/pricing" class="btn mt-2">Subscribe Now</a>
+</section>
+
+<!-- IMAGE GALLERY (MOBILE SLIDESHOW + DESKTOP GRID) -->
+<section class="bread-gallery mt-3 mb-3">
+
+    <!-- Mobile/Tablet Slideshow -->
+    <div class="gallery-slider">
+
+        <div class="slide">
+            <img src="{{ url_for('static', filename='images/Bread-1.png') }}" alt="Bread 1">
+        </div>
+
+        <div class="slide">
+            <img src="{{ url_for('static', filename='images/Bread-2.png') }}" alt="Bread 2">
+        </div>
+
+        <div class="slide">
+            <img src="{{ url_for('static', filename='images/Bread-3.png') }}" alt="Bread 3">
+        </div>
+
+        <div class="slide">
+            <img src="{{ url_for('static', filename='images/Bread-4.png') }}" alt="Bread 4">
+        </div>
+
+    </div>
+
+    <!-- Desktop Grid -->
+    <div class="gallery-grid">
+        <img src="{{ url_for('static', filename='images/Bread-1.png') }}" alt="Bread 1">
+        <img src="{{ url_for('static', filename='images/Bread-2.png') }}" alt="Bread 2">
+        <img src="{{ url_for('static', filename='images/Bread-3.png') }}" alt="Bread 3">
+        <img src="{{ url_for('static', filename='images/Bread-4.png') }}" alt="Bread 4">
+    </div>
+
+</section>
+
+<!-- FEATURES SECTION -->
+<section class="features mt-3 mb-3">
+    <div class="container">
+
+        <div class="feature-block">
+            <h2>Why Frozen Bread?</h2>
+            <p>Our homemade loaves are baked fresh, cooled, frozen, and delivered to your doorstep — 
+               giving you bakery-quality bread whenever you want it.</p>
+        </div>
+
+        <div class="feature-grid mt-3">
+
+            <div class="feature-card">
+                <h3>✨ Homemade Quality</h3>
+                <p>Every loaf is handmade using slow fermentation techniques for extra flavour.</p>
+            </div>
+
+            <div class="feature-card">
+                <h3>🧊 Always Fresh</h3>
+                <p>Rapidly frozen to lock in freshness so you can enjoy bread on your schedule.</p>
+            </div>
+
+            <div class="feature-card">
+                <h3>♻️ Zero Waste</h3>
+                <p>Only defrost what you need. No stale bread. No leftovers in the bin.</p>
+            </div>
+
+            <div class="feature-card">
+                <h3>📦 Monthly Subscription</h3>
+                <p>Your favourite breads delivered reliably every month — simple and stress-free.</p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- CALL TO ACTION -->
+<section class="cta mt-3">
+    <div class="container">
+        <h2>Ready for Better Bread?</h2>
+        <p>Sign up today and unlock access to our exclusive recipes and monthly sourdough drops.</p>
+        <a href="/pricing" class="btn">View Subscription Options</a>
+    </div>
+</section>
+
+{% endblock %}
