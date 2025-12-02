@@ -26,7 +26,6 @@ Thumbs.db
 *.jpeg
 *.png
 
-
 # Node / frontend (if ever used)
 node_modules/
 
