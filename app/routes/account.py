@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash
-from flask_login import login_required, current_user
+from flask_login import login_required, current_user, logout_user
 from app.database import get_db
 
 account = Blueprint("account", __name__)
@@ -41,3 +41,18 @@ def update_address():
 
     # GET request: show form with existing values
     return render_template("update_address.html", user=current_user)
+
+# Delete account route
+@account.route("/account/delete", methods=["POST"])
+@login_required
+def delete_account():
+    """
+    Delete the current user's account, log them out, and send them home.
+    """
+    db = get_db()
+    db.execute("DELETE FROM users WHERE id = ?", (current_user.id,))
+    db.commit()
+
+    logout_user()
+    flash("Your account has been deleted.", "success")
+    return redirect(url_for("main.index"))

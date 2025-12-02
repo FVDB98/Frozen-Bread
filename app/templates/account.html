@@ -24,10 +24,48 @@
             <a class="button grey-btn" href="{{ url_for('account.update_address') }}" class="account-link">Update Address</a>
             <a class="button grey-btn" href="/account/subscription">Manage Subscription</a>
             <a class="button logout-btn" href="/logout">Log Out</a>
+            <button class="button danger-btn" type="button" id="deleteAccountTrigger">Delete Account</button>
         </div>
 
     </div>
 
 </div>
+
+<div id="deleteAccountModal" class="confirm-modal hidden">
+    <div class="confirm-modal-content">
+        <h3>Delete your account?</h3>
+        <p>This will permanently remove your details and subscription data. This action cannot be undone.</p>
+        <form id="deleteAccountForm" action="{{ url_for('account.delete_account') }}" method="POST">
+            <div class="confirm-actions">
+                <button type="submit" class="confirm-danger">Yes, delete</button>
+                <button type="button" class="confirm-secondary" id="cancelDeleteAccount">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const deleteTrigger = document.getElementById("deleteAccountTrigger");
+        const deleteModal = document.getElementById("deleteAccountModal");
+        const cancelDelete = document.getElementById("cancelDeleteAccount");
+
+        if (!deleteTrigger || !deleteModal || !cancelDelete) return;
+
+        deleteTrigger.addEventListener("click", () => {
+            deleteModal.classList.remove("hidden");
+        });
+
+        cancelDelete.addEventListener("click", () => {
+            deleteModal.classList.add("hidden");
+        });
+
+        deleteModal.addEventListener("click", (event) => {
+            if (event.target === deleteModal) {
+                deleteModal.classList.add("hidden");
+            }
+        });
+    });
+</script>
 
 {% endblock %}
